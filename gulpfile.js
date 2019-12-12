@@ -85,6 +85,12 @@ var copyFiles = function (done) {
     
 };
 
+var jsonFiles = function(done) {
+  done();
+  return src('src/json/**/*.json')
+    .pipe(dest('dist/json/'))
+}
+
 // image minification
 var buildImages = function (done) {
 
@@ -139,6 +145,7 @@ exports.default = series(
     lintScripts,
     buildStyles,
     buildImages,
+    jsonFiles,
     copyFiles
   )
   
